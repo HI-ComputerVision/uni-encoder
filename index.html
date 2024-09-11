@@ -3,7 +3,101 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <script
+      src="https://kit.fontawesome.com/0cae1cf83d.js"
+      crossorigin="anonymous"
+    ></script>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&display=swap"
+      rel="stylesheet"
+    />
     <title>A Unified Encoder for Efficient Multi-Task Inference</title>
+    <style>
+      body {
+        font-family: "Lato", sans-serif;
+      }
+    </style>
   </head>
-  <body></body>
+
+  <body>
+    <div id="header" class="mt-10 w-full max-w-[950px] mx-auto">
+      <h2 id="title" class="text-center text-3xl">
+        Human Insights Driven Latent Space for Different Driving Perspectives: A
+        <b>Unified Encoder</b> for Efficient <b>Multi-Task</b> Inference
+      </h2>
+      <ul
+        id="authors"
+        class="mt-10 flex flex-col gap-x-3 justify-center sm:flex-row"
+      >
+        <li
+          class="inline-block text-[#1772d0] hover:text-[#f09228] text-center"
+        >
+          Huy-Dung Nguyen <sup>1</sup>
+        </li>
+        <li
+          class="inline-block text-[#1772d0] hover:text-[#f09228] text-center"
+        >
+          Anass Bairouk <sup>1</sup>
+        </li>
+        <li
+          class="inline-block text-[#1772d0] hover:text-[#f09228] text-center"
+        >
+          Mirjana Maras <sup>1</sup>
+        </li>
+        <li
+          class="inline-block text-[#1772d0] hover:text-[#f09228] text-center"
+        >
+          Patrick Chareyre <sup>1</sup>
+        </li>
+        <li
+          class="inline-block text-[#1772d0] hover:text-[#f09228] text-center"
+        >
+          Ramin Hasani <sup>2</sup>
+        </li>
+        <li
+          class="inline-block text-[#1772d0] hover:text-[#f09228] text-center"
+        >
+          Marc Blanchon <sup>1</sup>
+        </li>
+        <li
+          class="inline-block text-[#1772d0] hover:text-[#f09228] text-center"
+        >
+          Daniela Rus <sup>2</sup>
+        </li>
+      </ul>
+      <ul class="flex justify-evenly flex-1 mt-2 flex-col sm:flex-row">
+        <li class="text-center"><sup>1</sup>Capgemini Engineering</li>
+        <li class="text-center"><sup>2</sup>MIT University</li>
+      </ul>
+      <ul class="flex justify-center flex-1 mt-10 text-white gap-2">
+        <li
+          class="bg-[#363636] py-1 px-4 rounded-full hover:bg-[#ccc] hover:text-black hover:cursor-pointer text-center max-w-24"
+        >
+          <i class="fa-solid fa-file-pdf mr-1"></i>Arxiv
+        </li>
+        <li
+          class="bg-[#363636] py-1 px-4 rounded-full hover:bg-[#ccc] hover:text-black hover:cursor-pointer text-center max-w-24"
+        >
+          <i class="fa-solid fa-file-pdf mr-1"></i>Code
+        </li>
+      </ul>
+    </div>
+    <div id="quantitative-results" class="w-full max-w-[1400px] mx-auto mt-20">
+      <div
+        class="pt-[15%] bg-[url('/assets/img/qualitative_results.png')] bg-cover bg-no-repeat"
+      ></div>
+      <div class="grid grid-cols-7 text-center">
+        <div>Input</div>
+        <div>Panoptic seg.</div>
+        <div>Instance seg.</div>
+        <div>Semantic seg.</div>
+        <div>Depth</div>
+        <div>Motion mask</div>
+        <div>Independent Flow</div>
+      </div>
+    </div>
+  </body>
+  <script src="https://cdn.tailwindcss.com"></script>
 </html>
