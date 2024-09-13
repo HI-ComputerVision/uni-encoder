@@ -613,6 +613,26 @@ video {
   display: grid;
 }
 
+.aspect-auto {
+  aspect-ratio: auto;
+}
+
+.aspect-video {
+  aspect-ratio: 16 / 9;
+}
+
+.aspect-\[16\/4\] {
+  aspect-ratio: 16/4;
+}
+
+.aspect-\[16\/5\] {
+  aspect-ratio: 16/5;
+}
+
+.aspect-\[16\/6\] {
+  aspect-ratio: 16/6;
+}
+
 .w-\[60\%\] {
   width: 60%;
 }
@@ -625,12 +645,12 @@ video {
   width: 100%;
 }
 
-.min-w-\[950px\] {
-  min-width: 950px;
+.w-\[50\%\] {
+  width: 50%;
 }
 
-.min-w-full {
-  min-width: 100%;
+.min-w-\[950px\] {
+  min-width: 950px;
 }
 
 .max-w-24 {
@@ -661,6 +681,18 @@ video {
   max-width: 950px;
 }
 
+.max-w-\[100\%\] {
+  max-width: 100%;
+}
+
+.max-w-\[95px\] {
+  max-width: 95px;
+}
+
+.max-w-\[1100px\] {
+  max-width: 1100px;
+}
+
 .flex-1 {
   flex: 1 1 0%;
 }
@@ -679,6 +711,10 @@ video {
 
 .flex-col {
   flex-direction: column;
+}
+
+.items-center {
+  align-items: center;
 }
 
 .justify-center {
@@ -700,10 +736,6 @@ video {
 .gap-x-5 {
   -moz-column-gap: 1.25rem;
        column-gap: 1.25rem;
-}
-
-.overflow-hidden {
-  overflow: hidden;
 }
 
 .overflow-x-auto {
@@ -744,11 +776,6 @@ video {
 .bg-gray-100 {
   --tw-bg-opacity: 1;
   background-color: rgb(243 244 246 / var(--tw-bg-opacity));
-}
-
-.bg-slate-400 {
-  --tw-bg-opacity: 1;
-  background-color: rgb(148 163 184 / var(--tw-bg-opacity));
 }
 
 .bg-orange-50 {
@@ -874,48 +901,8 @@ video {
   height: 8px;
 }
 
-.scrollbar-track-gray-200 {
-  --scrollbar-track: #e5e7eb !important;
-}
-
-.scrollbar-track-orange-700 {
-  --scrollbar-track: #c2410c !important;
-}
-
-.scrollbar-track-rose-200 {
-  --scrollbar-track: #fecdd3 !important;
-}
-
-.scrollbar-track-red-200 {
-  --scrollbar-track: #fecaca !important;
-}
-
 .scrollbar-track-orange-200 {
   --scrollbar-track: #fed7aa !important;
-}
-
-.scrollbar-thumb-gray-400 {
-  --scrollbar-thumb: #9ca3af !important;
-}
-
-.scrollbar-thumb-slate-50 {
-  --scrollbar-thumb: #f8fafc !important;
-}
-
-.scrollbar-thumb-orange-700 {
-  --scrollbar-thumb: #c2410c !important;
-}
-
-.scrollbar-thumb-orange-500 {
-  --scrollbar-thumb: #f97316 !important;
-}
-
-.scrollbar-thumb-rose-600 {
-  --scrollbar-thumb: #e11d48 !important;
-}
-
-.scrollbar-thumb-red-600 {
-  --scrollbar-thumb: #dc2626 !important;
 }
 
 .scrollbar-thumb-orange-600 {
