@@ -119,28 +119,30 @@
       <div id="abstract" class="w-full max-w-[950px] mx-auto mt-10">
         <h3 class="text-3xl">Abstract</h3>
         <p class="mt-3 text-justify">
-          Autonomous driving is one of the most promising yet challenging areas
-          in technology today. A fully autonomous system has the potential to
-          revolutionize road traffic by enhancing safety and efficiency through
-          the reduction of human errors and congestion. One critical challenge
-          in achieving this is accurate steering angle estimation, which
-          directly affects a vehicle's ability to navigate and maintain control.
-          Recent advances in deep learning have enabled the estimation of
-          steering angles directly from raw camera data. However, limited
-          navigation data can lead to suboptimal feature learning. To address
-          this, we propose a shared encoder trained on multiple computer vision
-          tasks critical for urban navigation, such as depth, pose, and 3D scene
-          flow estimation, as well as semantic, instance, panoptic, and motion
-          segmentation. By incorporating diverse visual information used by
-          humans during navigation, this unified encoder may enhance steering
-          angle estimation. To achieve effective multi-task learning within a
-          single encoder, we introduce a multi-scale feature network for pose
+          Autonomous driving holds great potential to transform road safety and
+          traffic efficiency by minimizing human error and reducing congestion.
+          A key challenge in realizing this potential is the accurate estimation
+          of steering angles, which is essential for effective vehicle
+          navigation and control. Recent breakthroughs in deep learning have
+          made it possible to estimate steering angles directly from raw camera
+          inputs. However, the limited available navigation data can hinder
+          optimal feature learning, impacting the system's performance in
+          complex driving scenarios. In this paper, we propose a shared encoder
+          trained on multiple computer vision tasks critical for urban
+          navigation, such as depth, pose, and 3D scene flow estimation, as well
+          as semantic, instance, panoptic, and motion segmentation. By
+          incorporating diverse visual information used by humans during
+          navigation, this unified encoder might enhance steering angle
+          estimation. To achieve effective multi-task learning within a single
+          encoder, we introduce a multi-scale feature network for pose
           estimation to improve depth learning. Additionally, we employ
           knowledge distillation from a multi-backbone model pretrained on these
-          tasks to stabilize training and boost performance. Our findings
-          demonstrate that a shared backbone trained on diverse visual tasks
-          significantly improves steering angle estimation, underscoring the
-          potential of integrating human-like perception into autonomous driving
+          navigation tasks to stabilize training and boost performance. Our
+          findings demonstrate that a shared backbone trained on diverse visual
+          tasks is capable of providing overall perception capabilities. While
+          our performance in steering angle estimation is comparable to existing
+          methods, the integration of human-like perception through multi-task
+          learning holds significant potential for advancing autonomous driving
           systems.
         </p>
       </div>
