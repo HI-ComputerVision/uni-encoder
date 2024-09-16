@@ -19,6 +19,10 @@
       body {
         font-family: "Lato", sans-serif;
       }
+
+      .hidden {
+        display: none;
+      }
     </style>
   </head>
 
@@ -97,26 +101,24 @@
     </div>
     <div
       id="hero"
-      class="w-full max-w-[1400px] mx-auto mt-20 px-5 overflow-x-auto scrollbar-thin scrollbar-thumb-orange-600 scrollbar-track-orange-200"
+      class="w-full max-w-[1000px] mx-auto mt-5 px-5 overflow-x-auto scrollbar-thin scrollbar-thumb-orange-600 scrollbar-track-orange-200"
     >
-      <img
-        class="border inline-block min-w-[950px]"
-        src="./assets/img/qualitative_results.png"
-        alt="hero-section"
-      />
-      <div class="grid grid-cols-7 text-center min-w-[950px]">
-        <div>Input</div>
-        <div>Panoptic seg.</div>
-        <div>Instance seg.</div>
-        <div>Semantic seg.</div>
-        <div>Depth</div>
-        <div>Motion mask</div>
-        <div>Independent Flow</div>
-      </div>
+      <video class="mt-5" autoplay muted loop width="100%" preload="metadata">
+        <source src="./assets/video/demo1.mp4" type="video/mp4" />
+        Your browser does not support the video tag.
+      </video>
+      <video class="mt-5" autoplay muted loop width="100%" preload="metadata">
+        <source src="./assets/video/demo2.mp4" type="video/mp4" />
+        Your browser does not support the video tag.
+      </video>
+      <video class="mt-5" autoplay muted loop width="100%" preload="metadata">
+        <source src="./assets/video/demo3.mp4" type="video/mp4" />
+        Your browser does not support the video tag.
+      </video>
     </div>
 
     <div id="content" class="px-5">
-      <div id="abstract" class="w-full max-w-[950px] mx-auto mt-10">
+      <div id="abstract" class="w-full max-w-[1000px] mx-auto mt-10">
         <h3 class="text-3xl">Abstract</h3>
         <p class="mt-3 text-justify">
           Autonomous driving holds great potential to transform road safety and
@@ -147,673 +149,173 @@
         </p>
       </div>
 
-      <div id="model" class="w-full max-w-[950px] mx-auto mt-10 flex flex-col">
+      <div id="model" class="w-full max-w-[1000px] mx-auto mt-10 flex flex-col">
         <h3 class="text-3xl">Model architecture</h3>
-        <div class="flex flex-col">
-          <h4 class="text-2xl mt-5">Model overview</h4>
-          <img
-            class="inline-block w-full max-w-[500px] mx-auto mt-5"
-            src="./assets/img/overall_architecture.png"
-            alt="overview"
-          />
-        </div>
-
-        <div class="flex flex-col">
-          <h4 class="text-2xl mt-5">Encoder architecture details</h4>
-          <img
-            class="inline-block w-full max-w-[800px] mx-auto mt-5"
-            src="./assets/img/swin_architecture.png"
-            alt="swin"
-          />
-        </div>
-
-        <div class="flex flex-col">
-          <h4 class="text-2xl mt-5">Pose decoder architecture details</h4>
-          <img
-            class="inline-block w-[60%] max-w-[800px] mx-auto mt-5"
-            src="./assets/img/pose_decoder.png"
-            alt="pose"
-          />
-        </div>
-
-        <div class="flex flex-col">
-          <h4 class="text-2xl mt-5">Depth decoder architecture details</h4>
-          <img
-            class="inline-block w-full max-w-[800px] mx-auto mt-5"
-            src="./assets/img/depth_decoder.png"
-            alt="depth"
-          />
-        </div>
-
-        <div class="flex flex-col">
-          <h4 class="text-2xl mt-5">
-            3D Scene Flow & Motion mask decoder architecture details
-          </h4>
-          <img
-            class="inline-block w-[80%] max-w-[800px] mx-auto mt-5"
-            src="./assets/img/flow_decoder.png"
-            alt="flow"
-          />
-        </div>
-      </div>
-
-      <div
-        id="results"
-        class="flex flex-col justify-center w-full max-w-[1000px] mx-auto mt-10 gap-5"
-      >
-        <h3 class="text-3xl">Quantitative results</h3>
-        <div class="flex flex-col justify-center mt-8 w-full">
-          <div
-            class="overflow-x-auto scrollbar-thin scrollbar-thumb-orange-600 scrollbar-track-orange-200"
-          >
-            <table
-              class="mx-auto flex-shrink-0 border-collapse border border-gray-300 shadow-md"
-            >
-              <thead>
-                <tr class="bg-gray-100">
-                  <th
-                    class="border border-gray-300 px-6 py-3 text-center font-semibold"
-                  >
-                    Method
-                  </th>
-                  <th
-                    class="border border-gray-300 px-6 py-3 text-center font-semibold"
-                  >
-                    PQ (↑)
-                  </th>
-                  <th
-                    class="border border-gray-300 px-6 py-3 text-center font-semibold"
-                  >
-                    AP (↑)
-                  </th>
-                  <th
-                    class="border border-gray-300 px-6 py-3 text-center font-semibold"
-                  >
-                    IoU (↑)
-                  </th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr class="odd:bg-white even:bg-gray-50">
-                  <td class="border border-gray-300 px-6 py-3 text-center">
-                    OneFormer
-                  </td>
-                  <td class="border border-gray-300 px-6 py-3 text-center">
-                    55.8
-                  </td>
-                  <td class="border border-gray-300 px-6 py-3 text-center">
-                    28.4
-                  </td>
-                  <td class="border border-gray-300 px-6 py-3 text-center">
-                    74.3
-                  </td>
-                </tr>
-                <tr class="odd:bg-white even:bg-gray-50">
-                  <td class="border border-gray-300 px-6 py-3 text-center">
-                    Our multi-task model
-                  </td>
-                  <td class="border border-gray-300 px-6 py-3 text-center">
-                    56.0
-                  </td>
-                  <td class="border border-gray-300 px-6 py-3 text-center">
-                    28.6
-                  </td>
-                  <td class="border border-gray-300 px-6 py-3 text-center">
-                    74.2
-                  </td>
-                </tr>
-              </tbody>
-            </table>
+        <div>
+          <h4 class="text-2xl mt-5">Model Overview</h4>
+          <div class="flex flex-col">
+            <img
+              class="inline-block w-full max-w-[500px] mx-auto mt-5"
+              src="./assets/img/overall_architecture.png"
+              alt="overview"
+            />
+            <p class="mt-2">
+              <strong>Fig. 1:</strong> Overview of our multi-task training
+              strategy. Let \(I_s\), \(I_t\), and \(I_1, I_2, \ldots, I_{16}\)
+              represent the source image, target image, and 16 sequential
+              images, respectively. Their corresponding features, denoted as
+              \(f_s\), \(f_t\), and \(f_1, f_2, \ldots, f_{16}\), are extracted
+              using a shared encoder. These features can be concatenated when
+              necessary for subsequent processing.
+            </p>
           </div>
-          <p class="text-justify w-full mt-5">
-            Comparison of segmentation performance with the state-of-the-art
-            OneFormer method on the CityScapes dataset.
-          </p>
-        </div>
-        <div class="mt-10">
-          <div
-            class="overflow-x-auto scrollbar-thin scrollbar-thumb-orange-600 scrollbar-track-orange-200"
-          >
-            <table
-              class="flex-shrink-0 border-collapse border border-gray-200 shadow-md rounded-lg"
-            >
-              <thead>
-                <tr class="bg-gray-100">
-                  <th
-                    rowspan="2"
-                    class="border border-gray-200 px-4 py-2 text-center font-semibold"
-                  >
-                    Method
-                  </th>
-                  <th
-                    rowspan="2"
-                    class="border border-gray-200 px-4 py-2 text-center font-semibold"
-                  >
-                    IM
-                  </th>
-                  <th
-                    rowspan="2"
-                    class="border border-gray-200 px-4 py-2 text-center font-semibold"
-                  >
-                    Semantics
-                  </th>
-                  <th
-                    rowspan="2"
-                    class="border border-gray-200 px-4 py-2 text-center font-semibold"
-                  >
-                    N° frame at inference
-                  </th>
-                  <th
-                    rowspan="2"
-                    class="border border-gray-200 px-4 py-2 text-center font-semibold"
-                  >
-                    D
-                  </th>
-                  <th
-                    colspan="4"
-                    class="border border-gray-200 px-4 py-2 text-center font-semibold"
-                  >
-                    Error metric (↓)
-                  </th>
-                  <th
-                    colspan="3"
-                    class="border border-gray-200 px-4 py-2 text-center font-semibold"
-                  >
-                    Accuracy metric (↑)
-                  </th>
-                </tr>
-                <tr class="bg-gray-100">
-                  <th
-                    class="border border-gray-200 px-4 py-2 text-center font-semibold"
-                  >
-                    Abs<sub>rel</sub>
-                  </th>
-                  <th
-                    class="border border-gray-200 px-4 py-2 text-center font-semibold"
-                  >
-                    S<sub>qrel</sub>
-                  </th>
-                  <th
-                    class="border border-gray-200 px-4 py-2 text-center font-semibold"
-                  >
-                    RMSE
-                  </th>
-                  <th
-                    class="border border-gray-200 px-4 py-2 text-center font-semibold"
-                  >
-                    RMSE<sub>log</sub>
-                  </th>
-                  <th
-                    class="border border-gray-200 px-4 py-2 text-center font-semibold"
-                  >
-                    δ &lt; 1.25
-                  </th>
-                  <th
-                    class="border border-gray-200 px-4 py-2 text-center font-semibold"
-                  >
-                    δ &lt; 1.25<sup>2</sup>
-                  </th>
-                  <th
-                    class="border border-gray-200 px-4 py-2 text-center font-semibold"
-                  >
-                    δ &lt; 1.25<sup>3</sup>
-                  </th>
-                </tr>
-              </thead>
-              <tbody>
-                <!-- KITTI dataset rows -->
-                <tr class="odd:bg-white even:bg-gray-50">
-                  <td class="border border-gray-200 px-4 py-2 text-center">
-                    Monodepth2
-                  </td>
-                  <td class="border border-gray-200 px-4 py-2 text-center"></td>
-                  <td class="border border-gray-200 px-4 py-2 text-center"></td>
-                  <td class="border border-gray-200 px-4 py-2 text-center">
-                    1
-                  </td>
-                  <td class="border border-gray-200 px-4 py-2 text-center">
-                    K
-                  </td>
-                  <td class="border border-gray-200 px-4 py-2 text-center">
-                    0.115
-                  </td>
-                  <td class="border border-gray-200 px-4 py-2 text-center">
-                    0.903
-                  </td>
-                  <td class="border border-gray-200 px-4 py-2 text-center">
-                    4.863
-                  </td>
-                  <td class="border border-gray-200 px-4 py-2 text-center">
-                    0.193
-                  </td>
-                  <td class="border border-gray-200 px-4 py-2 text-center">
-                    0.877
-                  </td>
-                  <td class="border border-gray-200 px-4 py-2 text-center">
-                    0.959
-                  </td>
-                  <td class="border border-gray-200 px-4 py-2 text-center">
-                    0.981
-                  </td>
-                </tr>
-                <tr class="odd:bg-white even:bg-gray-50">
-                  <td class="border border-gray-200 px-4 py-2 text-center">
-                    LiteMono
-                  </td>
-                  <td class="border border-gray-200 px-4 py-2 text-center"></td>
-                  <td class="border border-gray-200 px-4 py-2 text-center"></td>
-                  <td class="border border-gray-200 px-4 py-2 text-center">
-                    1
-                  </td>
-                  <td class="border border-gray-200 px-4 py-2 text-center">
-                    K
-                  </td>
-                  <td class="border border-gray-200 px-4 py-2 text-center">
-                    0.101
-                  </td>
-                  <td class="border border-gray-200 px-4 py-2 text-center">
-                    0.729
-                  </td>
-                  <td class="border border-gray-200 px-4 py-2 text-center">
-                    4.454
-                  </td>
-                  <td class="border border-gray-200 px-4 py-2 text-center">
-                    0.178
-                  </td>
-                  <td class="border border-gray-200 px-4 py-2 text-center">
-                    0.897
-                  </td>
-                  <td class="border border-gray-200 px-4 py-2 text-center">
-                    0.965
-                  </td>
-                  <td class="border border-gray-200 px-4 py-2 text-center">
-                    0.983
-                  </td>
-                </tr>
-                <!-- Repeat for other KITTI dataset rows -->
-                <tr class="odd:bg-white even:bg-gray-50">
-                  <td class="border border-gray-200 px-4 py-2 text-center">
-                    Struct2Depth
-                  </td>
-                  <td class="border border-gray-200 px-4 py-2 text-center">
-                    ✓
-                  </td>
-                  <td class="border border-gray-200 px-4 py-2 text-center">
-                    ✓
-                  </td>
-                  <td class="border border-gray-200 px-4 py-2 text-center">
-                    1
-                  </td>
-                  <td class="border border-gray-200 px-4 py-2 text-center">
-                    K
-                  </td>
-                  <td class="border border-gray-200 px-4 py-2 text-center">
-                    0.141
-                  </td>
-                  <td class="border border-gray-200 px-4 py-2 text-center">
-                    1.026
-                  </td>
-                  <td class="border border-gray-200 px-4 py-2 text-center">
-                    5.290
-                  </td>
-                  <td class="border border-gray-200 px-4 py-2 text-center">
-                    0.215
-                  </td>
-                  <td class="border border-gray-200 px-4 py-2 text-center">
-                    0.816
-                  </td>
-                  <td class="border border-gray-200 px-4 py-2 text-center">
-                    0.945
-                  </td>
-                  <td class="border border-gray-200 px-4 py-2 text-center">
-                    0.979
-                  </td>
-                </tr>
-                <tr class="odd:bg-white even:bg-gray-50">
-                  <td class="border border-gray-200 px-4 py-2 text-center">
-                    RM-Depth
-                  </td>
-                  <td class="border border-gray-200 px-4 py-2 text-center">
-                    ✓
-                  </td>
-                  <td class="border border-gray-200 px-4 py-2 text-center"></td>
-                  <td class="border border-gray-200 px-4 py-2 text-center">
-                    1
-                  </td>
-                  <td class="border border-gray-200 px-4 py-2 text-center">
-                    K
-                  </td>
-                  <td class="border border-gray-200 px-4 py-2 text-center">
-                    0.107
-                  </td>
-                  <td class="border border-gray-200 px-4 py-2 text-center">
-                    0.687
-                  </td>
-                  <td class="border border-gray-200 px-4 py-2 text-center">
-                    4.476
-                  </td>
-                  <td class="border border-gray-200 px-4 py-2 text-center">
-                    0.181
-                  </td>
-                  <td class="border border-gray-200 px-4 py-2 text-center">
-                    0.883
-                  </td>
-                  <td class="border border-gray-200 px-4 py-2 text-center">
-                    0.964
-                  </td>
-                  <td class="border border-gray-200 px-4 py-2 text-center">
-                    0.984
-                  </td>
-                </tr>
-                <tr class="odd:bg-white even:bg-gray-50">
-                  <td class="border border-gray-200 px-4 py-2 text-center">
-                    Dynamo-Depth
-                  </td>
-                  <td class="border border-gray-200 px-4 py-2 text-center">
-                    ✓
-                  </td>
-                  <td class="border border-gray-200 px-4 py-2 text-center"></td>
-                  <td class="border border-gray-200 px-4 py-2 text-center">
-                    1
-                  </td>
-                  <td class="border border-gray-200 px-4 py-2 text-center">
-                    K
-                  </td>
-                  <td class="border border-gray-200 px-4 py-2 text-center">
-                    0.112
-                  </td>
-                  <td class="border border-gray-200 px-4 py-2 text-center">
-                    0.758
-                  </td>
-                  <td class="border border-gray-200 px-4 py-2 text-center">
-                    4.505
-                  </td>
-                  <td class="border border-gray-200 px-4 py-2 text-center">
-                    0.183
-                  </td>
-                  <td class="border border-gray-200 px-4 py-2 text-center">
-                    0.873
-                  </td>
-                  <td class="border border-gray-200 px-4 py-2 text-center">
-                    0.959
-                  </td>
-                  <td class="border border-gray-200 px-4 py-2 text-center">
-                    0.984
-                  </td>
-                </tr>
-                <tr class="odd:bg-white even:bg-gray-50">
-                  <td class="border border-gray-200 px-4 py-2 text-center">
-                    Our (wo 3D scene flow)
-                  </td>
-                  <td class="border border-gray-200 px-4 py-2 text-center"></td>
-                  <td class="border border-gray-200 px-4 py-2 text-center"></td>
-                  <td class="border border-gray-200 px-4 py-2 text-center">
-                    1
-                  </td>
-                  <td class="border border-gray-200 px-4 py-2 text-center">
-                    K
-                  </td>
-                  <td class="border border-gray-200 px-4 py-2 text-center">
-                    0.109
-                  </td>
-                  <td class="border border-gray-200 px-4 py-2 text-center">
-                    0.818
-                  </td>
-                  <td class="border border-gray-200 px-4 py-2 text-center">
-                    4.654
-                  </td>
-                  <td class="border border-gray-200 px-4 py-2 text-center">
-                    0.184
-                  </td>
-                  <td class="border border-gray-200 px-4 py-2 text-center">
-                    0.884
-                  </td>
-                  <td class="border border-gray-200 px-4 py-2 text-center">
-                    0.963
-                  </td>
-                  <td class="border border-gray-200 px-4 py-2 text-center">
-                    0.983
-                  </td>
-                </tr>
-                <!-- CityScapes dataset rows -->
-                <tr class="odd:bg-white even:bg-gray-50">
-                  <td class="border border-gray-200 px-4 py-2 text-center">
-                    Struct2Depth
-                  </td>
-                  <td class="border border-gray-200 px-4 py-2 text-center">
-                    ✓
-                  </td>
-                  <td class="border border-gray-200 px-4 py-2 text-center">
-                    ✓
-                  </td>
-                  <td class="border border-gray-200 px-4 py-2 text-center">
-                    1
-                  </td>
-                  <td class="border border-gray-200 px-4 py-2 text-center">
-                    CS
-                  </td>
-                  <td class="border border-gray-200 px-4 py-2 text-center">
-                    0.145
-                  </td>
-                  <td class="border border-gray-200 px-4 py-2 text-center">
-                    1.737
-                  </td>
-                  <td class="border border-gray-200 px-4 py-2 text-center">
-                    7.280
-                  </td>
-                  <td class="border border-gray-200 px-4 py-2 text-center">
-                    0.205
-                  </td>
-                  <td class="border border-gray-200 px-4 py-2 text-center">
-                    0.813
-                  </td>
-                  <td class="border border-gray-200 px-4 py-2 text-center">
-                    0.942
-                  </td>
-                  <td class="border border-gray-200 px-4 py-2 text-center">
-                    0.978
-                  </td>
-                </tr>
-                <tr class="odd:bg-white even:bg-gray-50">
-                  <td class="border border-gray-200 px-4 py-2 text-center">
-                    Li et al.
-                  </td>
-                  <td class="border border-gray-200 px-4 py-2 text-center">
-                    ✓
-                  </td>
-                  <td class="border border-gray-200 px-4 py-2 text-center">
-                    ✓
-                  </td>
-                  <td class="border border-gray-200 px-4 py-2 text-center">
-                    1
-                  </td>
-                  <td class="border border-gray-200 px-4 py-2 text-center">
-                    CS
-                  </td>
-                  <td class="border border-gray-200 px-4 py-2 text-center">
-                    0.119
-                  </td>
-                  <td class="border border-gray-200 px-4 py-2 text-center">
-                    1.290
-                  </td>
-                  <td class="border border-gray-200 px-4 py-2 text-center">
-                    6.980
-                  </td>
-                  <td class="border border-gray-200 px-4 py-2 text-center">
-                    0.190
-                  </td>
-                  <td class="border border-gray-200 px-4 py-2 text-center">
-                    0.846
-                  </td>
-                  <td class="border border-gray-200 px-4 py-2 text-center">
-                    0.952
-                  </td>
-                  <td class="border border-gray-200 px-4 py-2 text-center">
-                    0.982
-                  </td>
-                </tr>
-                <tr class="odd:bg-white even:bg-gray-50">
-                  <td class="border border-gray-200 px-4 py-2 text-center">
-                    RM-Depth
-                  </td>
-                  <td class="border border-gray-200 px-4 py-2 text-center">
-                    ✓
-                  </td>
-                  <td class="border border-gray-200 px-4 py-2 text-center"></td>
-                  <td class="border border-gray-200 px-4 py-2 text-center">
-                    1
-                  </td>
-                  <td class="border border-gray-200 px-4 py-2 text-center">
-                    CS
-                  </td>
-                  <td class="border border-gray-200 px-4 py-2 text-center">
-                    0.100
-                  </td>
-                  <td class="border border-gray-200 px-4 py-2 text-center">
-                    0.839
-                  </td>
-                  <td class="border border-gray-200 px-4 py-2 text-center">
-                    5.774
-                  </td>
-                  <td class="border border-gray-200 px-4 py-2 text-center">
-                    0.154
-                  </td>
-                  <td class="border border-gray-200 px-4 py-2 text-center">
-                    0.895
-                  </td>
-                  <td class="border border-gray-200 px-4 py-2 text-center">
-                    0.976
-                  </td>
-                  <td class="border border-gray-200 px-4 py-2 text-center">
-                    0.993
-                  </td>
-                </tr>
-                <tr class="odd:bg-white even:bg-gray-50">
-                  <td class="border border-gray-200 px-4 py-2 text-center">
-                    Zhong et al.
-                  </td>
-                  <td class="border border-gray-200 px-4 py-2 text-center">
-                    ✓
-                  </td>
-                  <td class="border border-gray-200 px-4 py-2 text-center"></td>
-                  <td class="border border-gray-200 px-4 py-2 text-center">
-                    2
-                  </td>
-                  <td class="border border-gray-200 px-4 py-2 text-center">
-                    CS
-                  </td>
-                  <td class="border border-gray-200 px-4 py-2 text-center">
-                    0.098
-                  </td>
-                  <td class="border border-gray-200 px-4 py-2 text-center">
-                    0.946
-                  </td>
-                  <td class="border border-gray-200 px-4 py-2 text-center">
-                    5.553
-                  </td>
-                  <td class="border border-gray-200 px-4 py-2 text-center">
-                    0.148
-                  </td>
-                  <td class="border border-gray-200 px-4 py-2 text-center">
-                    0.908
-                  </td>
-                  <td class="border border-gray-200 px-4 py-2 text-center">
-                    0.977
-                  </td>
-                  <td class="border border-gray-200 px-4 py-2 text-center">
-                    0.992
-                  </td>
-                </tr>
-                <tr class="odd:bg-white even:bg-gray-50">
-                  <td class="border border-gray-200 px-4 py-2 text-center">
-                    ManyDepth
-                  </td>
-                  <td class="border border-gray-200 px-4 py-2 text-center">
-                    ✓
-                  </td>
-                  <td class="border border-gray-200 px-4 py-2 text-center"></td>
-                  <td class="border border-gray-200 px-4 py-2 text-center">
-                    2
-                  </td>
-                  <td class="border border-gray-200 px-4 py-2 text-center">
-                    CS
-                  </td>
-                  <td class="border border-gray-200 px-4 py-2 text-center">
-                    0.114
-                  </td>
-                  <td class="border border-gray-200 px-4 py-2 text-center">
-                    1.193
-                  </td>
-                  <td class="border border-gray-200 px-4 py-2 text-center">
-                    6.223
-                  </td>
-                  <td class="border border-gray-200 px-4 py-2 text-center">
-                    0.170
-                  </td>
-                  <td class="border border-gray-200 px-4 py-2 text-center">
-                    0.875
-                  </td>
-                  <td class="border border-gray-200 px-4 py-2 text-center">
-                    0.967
-                  </td>
-                  <td class="border border-gray-200 px-4 py-2 text-center">
-                    0.989
-                  </td>
-                </tr>
-                <tr class="odd:bg-white even:bg-gray-50">
-                  <td class="border border-gray-200 px-4 py-2 text-center">
-                    Our
-                  </td>
-                  <td class="border border-gray-200 px-4 py-2 text-center">
-                    ✓
-                  </td>
-                  <td class="border border-gray-200 px-4 py-2 text-center">
-                    ✓
-                  </td>
-                  <td class="border border-gray-200 px-4 py-2 text-center">
-                    1
-                  </td>
-                  <td class="border border-gray-200 px-4 py-2 text-center">
-                    CS
-                  </td>
-                  <td class="border border-gray-200 px-4 py-2 text-center">
-                    0.106
-                  </td>
-                  <td class="border border-gray-200 px-4 py-2 text-center">
-                    1.033
-                  </td>
-                  <td class="border border-gray-200 px-4 py-2 text-center">
-                    5.913
-                  </td>
-                  <td class="border border-gray-200 px-4 py-2 text-center">
-                    0.158
-                  </td>
-                  <td class="border border-gray-200 px-4 py-2 text-center">
-                    0.888
-                  </td>
-                  <td class="border border-gray-200 px-4 py-2 text-center">
-                    0.974
-                  </td>
-                  <td class="border border-gray-200 px-4 py-2 text-center">
-                    0.982
-                  </td>
-                </tr>
-              </tbody>
-            </table>
+
+          <div class="flex flex-col mt-5">
+            <img
+              class="inline-block w-full mx-auto mt-5"
+              src="./assets/img/overall_architecture_2.png"
+              alt="overview"
+            />
+            <p class="mt-2">
+              <strong>Fig. 2:</strong> Simplified architecture of our model:
+              <br />
+              (a) Depth network using target image features \(f_t\) to output
+              depth \(\mathbf{d}_t\).
+              <br />
+              (b) Multi-scale pose network using source and target image
+              features \(f_s, f_t\) to output relative pose \(\mathbf{T}_{t
+              \rightarrow s}\).
+              <br />
+              (c) 3D Scene Flow \(\mathbf{F}_C\) and Motion mask \(\mathbf{M}\)
+              networks using RGB images and features \(f_s, f_t\).
+              <br />
+              (d) Segmentation network outputting panoptic, instance, and
+              semantic segmentations.
+              <br />
+              (e) Loss computation \(L_{\text{ssup}}\) for joint training of
+              depth, pose, 3D scene flow, and motion mask segmentation.
+              <br />
+              We denote rigid flow \(\mathbf{F}_R\), independent flow
+              \(\mathbf{F}_I\), final flow, and sampled target image
+              \(\hat{\mathbf{I}}_t\).
+            </p>
           </div>
-          <p class="text-justify w-full mt-5">
-            Depth evaluation on the KITTI (K), and CityScapes (CS) Dataset. IM
-            stands for independent motion. N° frame indicates the number of
-            frame during inference. D indicates the used datatset for training
-            and evaluation.
-          </p>
+        </div>
+
+        <!-- Encoder Architecture Block -->
+        <div class="flex flex-col">
+          <button
+            class="text-2xl mt-5 text-left flex items-center focus:outline-none hover:text-[#f09228]"
+            onclick="toggleContent('encoder-details', 'encoder-arch-expand', 'encoder-arch-collap')"
+          >
+            <span>Encoder architecture details</span>
+            <i id="encoder-arch-expand" class="fa-solid fa-angle-down ml-2"></i>
+            <i
+              id="encoder-arch-collap"
+              class="hidden fa-solid fa-angle-up ml-2"
+            ></i>
+          </button>
+          <div id="encoder-details" class="hidden mt-5 flex-col">
+            <img
+              class="inline-block w-full max-w-[800px] mx-auto"
+              src="./assets/img/swin_architecture.png"
+              alt="swin"
+            />
+            <p class="mt-2">
+              <strong>Fig. 3:</strong> Our shared encoder architecture based on
+              Swin Transformer [<a class="text-red-600" href="#ref1">1</a>]
+            </p>
+          </div>
+        </div>
+
+        <!-- Pose Decoder Architecture Block -->
+        <div class="flex flex-col">
+          <button
+            class="text-2xl mt-5 text-left flex items-center focus:outline-none hover:text-[#f09228]"
+            onclick="toggleContent('pose-details', 'pose-arch-expand', 'pose-arch-collap')"
+          >
+            <span>Pose decoder architecture details</span>
+            <i id="pose-arch-expand" class="fa-solid fa-angle-down ml-2"></i>
+            <i
+              id="pose-arch-collap"
+              class="hidden fa-solid fa-angle-up ml-2"
+            ></i>
+          </button>
+          <div id="pose-details" class="hidden mt-5 flex-col">
+            <img
+              class="inline-block w-[60%] max-w-[800px] mx-auto"
+              src="./assets/img/pose_decoder.png"
+              alt="pose"
+            />
+            <p class="mt-2">
+              <strong>Fig. 4:</strong> Pose decoder architecture details.
+            </p>
+          </div>
+        </div>
+
+        <!-- Depth Decoder Architecture Block -->
+        <div class="flex flex-col">
+          <button
+            class="text-2xl mt-5 text-left flex items-center focus:outline-none hover:text-[#f09228]"
+            onclick="toggleContent('depth-details', 'depth-arch-expand', 'depth-arch-collap')"
+          >
+            <span>Depth decoder architecture details</span>
+            <i id="depth-arch-expand" class="fa-solid fa-angle-down ml-2"></i>
+            <i
+              id="depth-arch-collap"
+              class="hidden fa-solid fa-angle-up ml-2"
+            ></i>
+          </button>
+          <div id="depth-details" class="hidden mt-5 flex-col">
+            <img
+              class="inline-block w-full max-w-[800px] mx-auto"
+              src="./assets/img/depth_decoder.png"
+              alt="depth"
+            />
+            <p class="mt-2">
+              <strong>Fig. 5:</strong> Depth decoder architecture details. The
+              depth decoder is based on the TransDssl architecture [<a
+                class="text-red-600"
+                href="#ref2"
+                >2</a
+              >].
+            </p>
+          </div>
+        </div>
+
+        <!-- 3D Scene Flow & Motion Mask Decoder Architecture Block -->
+        <div class="flex flex-col">
+          <button
+            class="text-2xl mt-5 text-left flex items-center focus:outline-none hover:text-[#f09228]"
+            onclick="toggleContent('flow-details', 'flow-arch-expand', 'flow-arch-collap')"
+          >
+            <span
+              >3D Scene Flow & Motion mask decoder architecture details</span
+            >
+            <i id="flow-arch-expand" class="fa-solid fa-angle-down ml-2"></i>
+            <i
+              id="flow-arch-collap"
+              class="hidden fa-solid fa-angle-up ml-2"
+            ></i>
+          </button>
+          <div id="flow-details" class="hidden mt-5 flex-col">
+            <img
+              class="inline-block w-[80%] max-w-[800px] mx-auto"
+              src="./assets/img/flow_decoder.png"
+              alt="flow"
+            />
+            <p class="mt-2">
+              <strong>Fig. 6:</strong> 3D Scene Flow and Motion mask decoder
+              architecture details.
+            </p>
+          </div>
         </div>
       </div>
     </div>
 
     <div
-      id="quantitative-results"
-      class="w-full max-w-[1100px] mt-20 mx-auto px-5"
+      id="qualitative-results"
+      class="w-full max-w-[1000px] mt-20 mx-auto px-5"
     >
       <h3 class="text-3xl mt-5">Qualitative results</h3>
       <div
@@ -836,35 +338,600 @@
       </div>
     </div>
 
-    <div id="videos" class="w-full max-w-[950px] px-5 mt-20 mx-auto">
-      <h3 class="text-3xl">Demo Videos</h3>
-      <div class="embed-responsive mt-5">
-        <iframe
-          width="100%"
-          class="embed-responsive-item aspect-[16/6]"
-          src="https://www.youtube.com/embed/u4qjpAd2vlk?si=E44LhdUmU1LsXRyW&vq=hd1080"
-          allowfullscreen
-        ></iframe>
+    <div
+      id="results"
+      class="flex flex-col justify-center w-full max-w-[1000px] mx-auto mt-10 gap-5"
+    >
+      <h3 class="text-3xl">Quantitative results</h3>
+      <div class="flex flex-col justify-center mt-8 w-full">
+        <div
+          class="overflow-x-auto scrollbar-thin scrollbar-thumb-orange-600 scrollbar-track-orange-200"
+        >
+          <table
+            class="mx-auto flex-shrink-0 border-collapse border border-gray-300 shadow-md"
+          >
+            <thead>
+              <tr class="bg-gray-100">
+                <th
+                  class="border border-gray-300 px-6 py-3 text-center font-semibold"
+                >
+                  Method
+                </th>
+                <th
+                  class="border border-gray-300 px-6 py-3 text-center font-semibold"
+                >
+                  PQ (↑)
+                </th>
+                <th
+                  class="border border-gray-300 px-6 py-3 text-center font-semibold"
+                >
+                  AP (↑)
+                </th>
+                <th
+                  class="border border-gray-300 px-6 py-3 text-center font-semibold"
+                >
+                  IoU (↑)
+                </th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr class="odd:bg-white even:bg-gray-50">
+                <td class="border border-gray-300 px-6 py-3 text-center">
+                  OneFormer
+                </td>
+                <td class="border border-gray-300 px-6 py-3 text-center">
+                  55.8
+                </td>
+                <td class="border border-gray-300 px-6 py-3 text-center">
+                  28.4
+                </td>
+                <td class="border border-gray-300 px-6 py-3 text-center">
+                  74.3
+                </td>
+              </tr>
+              <tr class="odd:bg-white even:bg-gray-50">
+                <td class="border border-gray-300 px-6 py-3 text-center">
+                  Our multi-task model
+                </td>
+                <td class="border border-gray-300 px-6 py-3 text-center">
+                  56.0
+                </td>
+                <td class="border border-gray-300 px-6 py-3 text-center">
+                  28.6
+                </td>
+                <td class="border border-gray-300 px-6 py-3 text-center">
+                  74.2
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <p class="text-justify w-full mt-5">
+          Comparison of segmentation performance with the state-of-the-art
+          OneFormer method on the CityScapes dataset.
+        </p>
       </div>
-      <div class="embed-responsive mt-5">
-        <iframe
-          width="100%"
-          class="embed-responsive-item aspect-[16/6]"
-          src="https://www.youtube.com/embed/kDht9UjH6Kw?si=-6N1Vv7qV1UGcdps&vq=hd1080"
-          allowfullscreen
-        ></iframe>
-      </div>
-      <div class="embed-responsive mt-5">
-        <iframe
-          width="100%"
-          class="embed-responsive-item aspect-[16/6]"
-          src="https://www.youtube.com/embed/EVKJAiF_PtE?si=Rpp3Mz7B2KB5lxTX&vq=hd1080"
-          allowfullscreen
-        ></iframe>
+      <div class="mt-10">
+        <div
+          class="overflow-x-auto scrollbar-thin scrollbar-thumb-orange-600 scrollbar-track-orange-200"
+        >
+          <table
+            class="flex-shrink-0 border-collapse border border-gray-200 shadow-md rounded-lg"
+          >
+            <thead>
+              <tr class="bg-gray-100">
+                <th
+                  rowspan="2"
+                  class="border border-gray-200 px-4 py-2 text-center font-semibold"
+                >
+                  Method
+                </th>
+                <th
+                  rowspan="2"
+                  class="border border-gray-200 px-4 py-2 text-center font-semibold"
+                >
+                  IM
+                </th>
+                <th
+                  rowspan="2"
+                  class="border border-gray-200 px-4 py-2 text-center font-semibold"
+                >
+                  Semantics
+                </th>
+                <th
+                  rowspan="2"
+                  class="border border-gray-200 px-4 py-2 text-center font-semibold"
+                >
+                  N° frame at inference
+                </th>
+                <th
+                  rowspan="2"
+                  class="border border-gray-200 px-4 py-2 text-center font-semibold"
+                >
+                  D
+                </th>
+                <th
+                  colspan="4"
+                  class="border border-gray-200 px-4 py-2 text-center font-semibold"
+                >
+                  Error metric (↓)
+                </th>
+                <th
+                  colspan="3"
+                  class="border border-gray-200 px-4 py-2 text-center font-semibold"
+                >
+                  Accuracy metric (↑)
+                </th>
+              </tr>
+              <tr class="bg-gray-100">
+                <th
+                  class="border border-gray-200 px-4 py-2 text-center font-semibold"
+                >
+                  Abs<sub>rel</sub>
+                </th>
+                <th
+                  class="border border-gray-200 px-4 py-2 text-center font-semibold"
+                >
+                  S<sub>qrel</sub>
+                </th>
+                <th
+                  class="border border-gray-200 px-4 py-2 text-center font-semibold"
+                >
+                  RMSE
+                </th>
+                <th
+                  class="border border-gray-200 px-4 py-2 text-center font-semibold"
+                >
+                  RMSE<sub>log</sub>
+                </th>
+                <th
+                  class="border border-gray-200 px-4 py-2 text-center font-semibold"
+                >
+                  δ &lt; 1.25
+                </th>
+                <th
+                  class="border border-gray-200 px-4 py-2 text-center font-semibold"
+                >
+                  δ &lt; 1.25<sup>2</sup>
+                </th>
+                <th
+                  class="border border-gray-200 px-4 py-2 text-center font-semibold"
+                >
+                  δ &lt; 1.25<sup>3</sup>
+                </th>
+              </tr>
+            </thead>
+            <tbody>
+              <!-- KITTI dataset rows -->
+              <tr class="odd:bg-white even:bg-gray-50">
+                <td class="border border-gray-200 px-4 py-2 text-center">
+                  Monodepth2
+                </td>
+                <td class="border border-gray-200 px-4 py-2 text-center"></td>
+                <td class="border border-gray-200 px-4 py-2 text-center"></td>
+                <td class="border border-gray-200 px-4 py-2 text-center">1</td>
+                <td class="border border-gray-200 px-4 py-2 text-center">K</td>
+                <td class="border border-gray-200 px-4 py-2 text-center">
+                  0.115
+                </td>
+                <td class="border border-gray-200 px-4 py-2 text-center">
+                  0.903
+                </td>
+                <td class="border border-gray-200 px-4 py-2 text-center">
+                  4.863
+                </td>
+                <td class="border border-gray-200 px-4 py-2 text-center">
+                  0.193
+                </td>
+                <td class="border border-gray-200 px-4 py-2 text-center">
+                  0.877
+                </td>
+                <td class="border border-gray-200 px-4 py-2 text-center">
+                  0.959
+                </td>
+                <td class="border border-gray-200 px-4 py-2 text-center">
+                  0.981
+                </td>
+              </tr>
+              <tr class="odd:bg-white even:bg-gray-50">
+                <td class="border border-gray-200 px-4 py-2 text-center">
+                  LiteMono
+                </td>
+                <td class="border border-gray-200 px-4 py-2 text-center"></td>
+                <td class="border border-gray-200 px-4 py-2 text-center"></td>
+                <td class="border border-gray-200 px-4 py-2 text-center">1</td>
+                <td class="border border-gray-200 px-4 py-2 text-center">K</td>
+                <td class="border border-gray-200 px-4 py-2 text-center">
+                  0.101
+                </td>
+                <td class="border border-gray-200 px-4 py-2 text-center">
+                  0.729
+                </td>
+                <td class="border border-gray-200 px-4 py-2 text-center">
+                  4.454
+                </td>
+                <td class="border border-gray-200 px-4 py-2 text-center">
+                  0.178
+                </td>
+                <td class="border border-gray-200 px-4 py-2 text-center">
+                  0.897
+                </td>
+                <td class="border border-gray-200 px-4 py-2 text-center">
+                  0.965
+                </td>
+                <td class="border border-gray-200 px-4 py-2 text-center">
+                  0.983
+                </td>
+              </tr>
+              <!-- Repeat for other KITTI dataset rows -->
+              <tr class="odd:bg-white even:bg-gray-50">
+                <td class="border border-gray-200 px-4 py-2 text-center">
+                  Struct2Depth
+                </td>
+                <td class="border border-gray-200 px-4 py-2 text-center">✓</td>
+                <td class="border border-gray-200 px-4 py-2 text-center">✓</td>
+                <td class="border border-gray-200 px-4 py-2 text-center">1</td>
+                <td class="border border-gray-200 px-4 py-2 text-center">K</td>
+                <td class="border border-gray-200 px-4 py-2 text-center">
+                  0.141
+                </td>
+                <td class="border border-gray-200 px-4 py-2 text-center">
+                  1.026
+                </td>
+                <td class="border border-gray-200 px-4 py-2 text-center">
+                  5.290
+                </td>
+                <td class="border border-gray-200 px-4 py-2 text-center">
+                  0.215
+                </td>
+                <td class="border border-gray-200 px-4 py-2 text-center">
+                  0.816
+                </td>
+                <td class="border border-gray-200 px-4 py-2 text-center">
+                  0.945
+                </td>
+                <td class="border border-gray-200 px-4 py-2 text-center">
+                  0.979
+                </td>
+              </tr>
+              <tr class="odd:bg-white even:bg-gray-50">
+                <td class="border border-gray-200 px-4 py-2 text-center">
+                  RM-Depth
+                </td>
+                <td class="border border-gray-200 px-4 py-2 text-center">✓</td>
+                <td class="border border-gray-200 px-4 py-2 text-center"></td>
+                <td class="border border-gray-200 px-4 py-2 text-center">1</td>
+                <td class="border border-gray-200 px-4 py-2 text-center">K</td>
+                <td class="border border-gray-200 px-4 py-2 text-center">
+                  0.107
+                </td>
+                <td class="border border-gray-200 px-4 py-2 text-center">
+                  0.687
+                </td>
+                <td class="border border-gray-200 px-4 py-2 text-center">
+                  4.476
+                </td>
+                <td class="border border-gray-200 px-4 py-2 text-center">
+                  0.181
+                </td>
+                <td class="border border-gray-200 px-4 py-2 text-center">
+                  0.883
+                </td>
+                <td class="border border-gray-200 px-4 py-2 text-center">
+                  0.964
+                </td>
+                <td class="border border-gray-200 px-4 py-2 text-center">
+                  0.984
+                </td>
+              </tr>
+              <tr class="odd:bg-white even:bg-gray-50">
+                <td class="border border-gray-200 px-4 py-2 text-center">
+                  Dynamo-Depth
+                </td>
+                <td class="border border-gray-200 px-4 py-2 text-center">✓</td>
+                <td class="border border-gray-200 px-4 py-2 text-center"></td>
+                <td class="border border-gray-200 px-4 py-2 text-center">1</td>
+                <td class="border border-gray-200 px-4 py-2 text-center">K</td>
+                <td class="border border-gray-200 px-4 py-2 text-center">
+                  0.112
+                </td>
+                <td class="border border-gray-200 px-4 py-2 text-center">
+                  0.758
+                </td>
+                <td class="border border-gray-200 px-4 py-2 text-center">
+                  4.505
+                </td>
+                <td class="border border-gray-200 px-4 py-2 text-center">
+                  0.183
+                </td>
+                <td class="border border-gray-200 px-4 py-2 text-center">
+                  0.873
+                </td>
+                <td class="border border-gray-200 px-4 py-2 text-center">
+                  0.959
+                </td>
+                <td class="border border-gray-200 px-4 py-2 text-center">
+                  0.984
+                </td>
+              </tr>
+              <tr class="odd:bg-white even:bg-gray-50">
+                <td class="border border-gray-200 px-4 py-2 text-center">
+                  Our (wo 3D scene flow)
+                </td>
+                <td class="border border-gray-200 px-4 py-2 text-center"></td>
+                <td class="border border-gray-200 px-4 py-2 text-center"></td>
+                <td class="border border-gray-200 px-4 py-2 text-center">1</td>
+                <td class="border border-gray-200 px-4 py-2 text-center">K</td>
+                <td class="border border-gray-200 px-4 py-2 text-center">
+                  0.109
+                </td>
+                <td class="border border-gray-200 px-4 py-2 text-center">
+                  0.818
+                </td>
+                <td class="border border-gray-200 px-4 py-2 text-center">
+                  4.654
+                </td>
+                <td class="border border-gray-200 px-4 py-2 text-center">
+                  0.184
+                </td>
+                <td class="border border-gray-200 px-4 py-2 text-center">
+                  0.884
+                </td>
+                <td class="border border-gray-200 px-4 py-2 text-center">
+                  0.963
+                </td>
+                <td class="border border-gray-200 px-4 py-2 text-center">
+                  0.983
+                </td>
+              </tr>
+              <!-- CityScapes dataset rows -->
+              <tr class="odd:bg-white even:bg-gray-50">
+                <td class="border border-gray-200 px-4 py-2 text-center">
+                  Struct2Depth
+                </td>
+                <td class="border border-gray-200 px-4 py-2 text-center">✓</td>
+                <td class="border border-gray-200 px-4 py-2 text-center">✓</td>
+                <td class="border border-gray-200 px-4 py-2 text-center">1</td>
+                <td class="border border-gray-200 px-4 py-2 text-center">CS</td>
+                <td class="border border-gray-200 px-4 py-2 text-center">
+                  0.145
+                </td>
+                <td class="border border-gray-200 px-4 py-2 text-center">
+                  1.737
+                </td>
+                <td class="border border-gray-200 px-4 py-2 text-center">
+                  7.280
+                </td>
+                <td class="border border-gray-200 px-4 py-2 text-center">
+                  0.205
+                </td>
+                <td class="border border-gray-200 px-4 py-2 text-center">
+                  0.813
+                </td>
+                <td class="border border-gray-200 px-4 py-2 text-center">
+                  0.942
+                </td>
+                <td class="border border-gray-200 px-4 py-2 text-center">
+                  0.978
+                </td>
+              </tr>
+              <tr class="odd:bg-white even:bg-gray-50">
+                <td class="border border-gray-200 px-4 py-2 text-center">
+                  Li et al.
+                </td>
+                <td class="border border-gray-200 px-4 py-2 text-center">✓</td>
+                <td class="border border-gray-200 px-4 py-2 text-center">✓</td>
+                <td class="border border-gray-200 px-4 py-2 text-center">1</td>
+                <td class="border border-gray-200 px-4 py-2 text-center">CS</td>
+                <td class="border border-gray-200 px-4 py-2 text-center">
+                  0.119
+                </td>
+                <td class="border border-gray-200 px-4 py-2 text-center">
+                  1.290
+                </td>
+                <td class="border border-gray-200 px-4 py-2 text-center">
+                  6.980
+                </td>
+                <td class="border border-gray-200 px-4 py-2 text-center">
+                  0.190
+                </td>
+                <td class="border border-gray-200 px-4 py-2 text-center">
+                  0.846
+                </td>
+                <td class="border border-gray-200 px-4 py-2 text-center">
+                  0.952
+                </td>
+                <td class="border border-gray-200 px-4 py-2 text-center">
+                  0.982
+                </td>
+              </tr>
+              <tr class="odd:bg-white even:bg-gray-50">
+                <td class="border border-gray-200 px-4 py-2 text-center">
+                  RM-Depth
+                </td>
+                <td class="border border-gray-200 px-4 py-2 text-center">✓</td>
+                <td class="border border-gray-200 px-4 py-2 text-center"></td>
+                <td class="border border-gray-200 px-4 py-2 text-center">1</td>
+                <td class="border border-gray-200 px-4 py-2 text-center">CS</td>
+                <td class="border border-gray-200 px-4 py-2 text-center">
+                  0.100
+                </td>
+                <td class="border border-gray-200 px-4 py-2 text-center">
+                  0.839
+                </td>
+                <td class="border border-gray-200 px-4 py-2 text-center">
+                  5.774
+                </td>
+                <td class="border border-gray-200 px-4 py-2 text-center">
+                  0.154
+                </td>
+                <td class="border border-gray-200 px-4 py-2 text-center">
+                  0.895
+                </td>
+                <td class="border border-gray-200 px-4 py-2 text-center">
+                  0.976
+                </td>
+                <td class="border border-gray-200 px-4 py-2 text-center">
+                  0.993
+                </td>
+              </tr>
+              <tr class="odd:bg-white even:bg-gray-50">
+                <td class="border border-gray-200 px-4 py-2 text-center">
+                  Zhong et al.
+                </td>
+                <td class="border border-gray-200 px-4 py-2 text-center">✓</td>
+                <td class="border border-gray-200 px-4 py-2 text-center"></td>
+                <td class="border border-gray-200 px-4 py-2 text-center">2</td>
+                <td class="border border-gray-200 px-4 py-2 text-center">CS</td>
+                <td class="border border-gray-200 px-4 py-2 text-center">
+                  0.098
+                </td>
+                <td class="border border-gray-200 px-4 py-2 text-center">
+                  0.946
+                </td>
+                <td class="border border-gray-200 px-4 py-2 text-center">
+                  5.553
+                </td>
+                <td class="border border-gray-200 px-4 py-2 text-center">
+                  0.148
+                </td>
+                <td class="border border-gray-200 px-4 py-2 text-center">
+                  0.908
+                </td>
+                <td class="border border-gray-200 px-4 py-2 text-center">
+                  0.977
+                </td>
+                <td class="border border-gray-200 px-4 py-2 text-center">
+                  0.992
+                </td>
+              </tr>
+              <tr class="odd:bg-white even:bg-gray-50">
+                <td class="border border-gray-200 px-4 py-2 text-center">
+                  ManyDepth
+                </td>
+                <td class="border border-gray-200 px-4 py-2 text-center">✓</td>
+                <td class="border border-gray-200 px-4 py-2 text-center"></td>
+                <td class="border border-gray-200 px-4 py-2 text-center">2</td>
+                <td class="border border-gray-200 px-4 py-2 text-center">CS</td>
+                <td class="border border-gray-200 px-4 py-2 text-center">
+                  0.114
+                </td>
+                <td class="border border-gray-200 px-4 py-2 text-center">
+                  1.193
+                </td>
+                <td class="border border-gray-200 px-4 py-2 text-center">
+                  6.223
+                </td>
+                <td class="border border-gray-200 px-4 py-2 text-center">
+                  0.170
+                </td>
+                <td class="border border-gray-200 px-4 py-2 text-center">
+                  0.875
+                </td>
+                <td class="border border-gray-200 px-4 py-2 text-center">
+                  0.967
+                </td>
+                <td class="border border-gray-200 px-4 py-2 text-center">
+                  0.989
+                </td>
+              </tr>
+              <tr class="odd:bg-white even:bg-gray-50">
+                <td class="border border-gray-200 px-4 py-2 text-center">
+                  Our
+                </td>
+                <td class="border border-gray-200 px-4 py-2 text-center">✓</td>
+                <td class="border border-gray-200 px-4 py-2 text-center">✓</td>
+                <td class="border border-gray-200 px-4 py-2 text-center">1</td>
+                <td class="border border-gray-200 px-4 py-2 text-center">CS</td>
+                <td class="border border-gray-200 px-4 py-2 text-center">
+                  0.106
+                </td>
+                <td class="border border-gray-200 px-4 py-2 text-center">
+                  1.033
+                </td>
+                <td class="border border-gray-200 px-4 py-2 text-center">
+                  5.913
+                </td>
+                <td class="border border-gray-200 px-4 py-2 text-center">
+                  0.158
+                </td>
+                <td class="border border-gray-200 px-4 py-2 text-center">
+                  0.888
+                </td>
+                <td class="border border-gray-200 px-4 py-2 text-center">
+                  0.974
+                </td>
+                <td class="border border-gray-200 px-4 py-2 text-center">
+                  0.982
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <p class="text-justify w-full mt-5">
+          Depth evaluation on the KITTI (K), and CityScapes (CS) Dataset. IM
+          stands for independent motion. N° frame indicates the number of frame
+          during inference. D indicates the used datatset for training and
+          evaluation.
+        </p>
       </div>
     </div>
 
-    <div id="citation" class="w-full max-w-[950px] px-5 mt-20 mx-auto">
+    <div id="videos" class="w-full max-w-[1000px] px-5 mt-20 mx-auto">
+      <h3 class="text-3xl">Demo Videos</h3>
+      <p>
+        All videos are available in 1080p resolution. You can download the
+        videos from the following links:
+      </p>
+      <ul class="flex gap-4">
+        <li>
+          <a
+            href="https://www.youtube.com/watch?v=u4qjpAd2vlk"
+            target="_blank"
+            class="text-[#1772d0] hover:text-[#f09228]"
+            rel="noopener"
+            >Video demo 1</a
+          >
+        </li>
+        <li>
+          <a
+            href="https://www.youtube.com/watch?v=kDht9UjH6Kw"
+            target="_blank"
+            class="text-[#1772d0] hover:text-[#f09228]"
+            rel="noopener"
+            >Video demo 2</a
+          >
+        </li>
+        <li>
+          <a
+            href="https://www.youtube.com/watch?v=EVKJAiF_PtE"
+            target="_blank"
+            class="text-[#1772d0] hover:text-[#f09228]"
+            rel="noopener"
+            >Video demo 3</a
+          >
+        </li>
+      </ul>
+    </div>
+
+    <div id="references" class="w-full max-w-[1000px] px-5 mt-20 mx-auto">
+      <h3 class="text-3xl">References</h3>
+      <ol class="mt-5">
+        <li id="ref1">
+          Liu, Z., Lin, Y., Cao, Y., Hu, H., Wei, Y., Zhang, Z., ... & Guo, B.
+          (2021). Swin transformer: Hierarchical vision transformer using
+          shifted windows. In Proceedings of the IEEE/CVF international
+          conference on computer vision (pp. 10012-10022).
+        </li>
+        <li id="ref2">
+          Han, D., Shin, J., Kim, N., Hwang, S., & Choi, Y. (2022). Transdssl:
+          Transformer based depth estimation via self-supervised learning. IEEE
+          Robotics and Automation Letters, 7(4), 10969-10976.
+        </li>
+      </ol>
+    </div>
+
+    <div id="citation" class="w-full max-w-[1000px] px-5 mt-10 mx-auto">
       <h3 class="text-3xl">Citation</h3>
       <p>If you find our project useful, please consider citing:</p>
 
@@ -879,4 +946,25 @@
       </pre>
     </div>
   </body>
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script
+    id="MathJax-script"
+    async
+    src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"
+  ></script>
+  <script>
+    function toggleContent(contentId, expandIconId, collapseIconId) {
+      const content = document.getElementById(contentId);
+      const expandIcon = document.getElementById(expandIconId);
+      const collapseIcon = document.getElementById(collapseIconId);
+
+      // Toggle content visibility
+      content.classList.toggle("hidden");
+      content.classList.toggle("flex");
+
+      // Toggle icons
+      expandIcon.classList.toggle("hidden");
+      collapseIcon.classList.toggle("hidden");
+    }
+  </script>
 </html>
