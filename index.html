@@ -217,9 +217,13 @@
               class="hidden fa-solid fa-angle-up ml-2"
             ></i>
           </button>
-          <div id="encoder-details" class="hidden mt-5 flex-col">
+          <div
+            id="encoder-details"
+            class="overflow-hidden transition-height duration-500 ease-in-out flex-col flex"
+            style="height: 0"
+          >
             <img
-              class="inline-block w-full max-w-[800px] mx-auto"
+              class="inline-block w-full max-w-[800px] mx-auto mt-5"
               src="./assets/img/swin_architecture.png"
               alt="swin"
             />
@@ -243,9 +247,13 @@
               class="hidden fa-solid fa-angle-up ml-2"
             ></i>
           </button>
-          <div id="pose-details" class="hidden mt-5 flex-col">
+          <div
+            id="pose-details"
+            class="overflow-hidden transition-height duration-500 ease-in-out flex-col flex"
+            style="height: 0"
+          >
             <img
-              class="inline-block w-[60%] max-w-[800px] mx-auto"
+              class="inline-block w-[60%] max-w-[800px] mx-auto mt-5"
               src="./assets/img/pose_decoder.png"
               alt="pose"
             />
@@ -268,9 +276,13 @@
               class="hidden fa-solid fa-angle-up ml-2"
             ></i>
           </button>
-          <div id="depth-details" class="hidden mt-5 flex-col">
+          <div
+            id="depth-details"
+            class="overflow-hidden transition-height duration-500 ease-in-out flex-col"
+            style="height: 0"
+          >
             <img
-              class="inline-block w-full max-w-[800px] mx-auto"
+              class="inline-block w-full max-w-[800px] mx-auto mt-5"
               src="./assets/img/depth_decoder.png"
               alt="depth"
             />
@@ -300,7 +312,11 @@
               class="hidden fa-solid fa-angle-up ml-2"
             ></i>
           </button>
-          <div id="flow-details" class="hidden mt-5 flex-col">
+          <div
+            id="flow-details"
+            class="overflow-hidden transition-height duration-500 ease-in-out flex flex-col mt-5"
+            style="height: 0"
+          >
             <img
               class="inline-block w-[80%] max-w-[800px] mx-auto"
               src="./assets/img/flow_decoder.png"
@@ -341,9 +357,9 @@
 
     <div
       id="results"
-      class="flex flex-col justify-center w-full mx-auto mt-10 gap-5"
+      class="flex flex-col justify-center w-full mx-auto mt-10 gap-5 px-5"
     >
-      <div class="max-w-[1000px] mx-auto">
+      <div class="w-full max-w-[1000px] mx-auto">
         <h3 class="text-3xl">Quantitative results</h3>
         <div class="flex flex-col justify-center mt-8 w-full">
           <div
@@ -409,8 +425,8 @@
             </table>
           </div>
           <p class="text-justify w-full mt-5">
-            Comparison of segmentation performance with the state-of-the-art
-            OneFormer method on the CityScapes dataset.
+            <strong>Tab. 1:</strong> Comparison of segmentation performance with
+            the state-of-the-art OneFormer method on the CityScapes dataset.
           </p>
         </div>
         <div class="mt-10">
@@ -945,10 +961,10 @@
             </table>
           </div>
           <p class="text-justify w-full mt-5">
-            Depth evaluation on the KITTI (K), and CityScapes (CS) Dataset. IM
-            stands for independent motion. N° frame indicates the number of
-            frame during inference. D indicates the used datatset for training
-            and evaluation.
+            <strong>Tab. 2:</strong> Depth evaluation on the KITTI (K), and
+            CityScapes (CS) Dataset. IM stands for independent motion. N° frame
+            indicates the number of frame during inference. D indicates the used
+            datatset for training and evaluation.
           </p>
         </div>
       </div>
@@ -1041,9 +1057,13 @@
       const expandIcon = document.getElementById(expandIconId);
       const collapseIcon = document.getElementById(collapseIconId);
 
-      // Toggle content visibility
-      content.classList.toggle("hidden");
-      content.classList.toggle("flex");
+      if (content.style.height === "0px" || content.style.height === "") {
+        // Expand the content
+        content.style.height = content.scrollHeight + "px"; // Set to the content's scroll height
+      } else {
+        // Collapse the content
+        content.style.height = "0px";
+      }
 
       // Toggle icons
       expandIcon.classList.toggle("hidden");
