@@ -976,6 +976,60 @@
           </p>
         </div>
       </div>
+      <div id="passive-lane-keeping" class="w-full max-w-[1000px] mx-auto mt-10">
+        <h3 class="text-3xl">Passive Lane-Keeping Evaluation Results</h3>
+        <div class="overflow-x-auto scrollbar-thin scrollbar-thumb-orange-600 scrollbar-track-orange-200">
+          <table class="border-collapse border border-gray-300 shadow-md w-full text-center">
+            <thead>
+              <tr class="bg-gray-100">
+                <th class="border border-gray-300 px-6 py-3 font-semibold">Model</th>
+                <th class="border border-gray-300 px-6 py-3 font-semibold">Training Error</th>
+                <th class="border border-gray-300 px-6 py-3 font-semibold">Test Error</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr class="odd:bg-white even:bg-gray-50">
+                <td class="border border-gray-300 px-6 py-3">CNN-GRU 64 units</td>
+                <td class="border border-gray-300 px-6 py-3">1.25±1.02</td>
+                <td class="border border-gray-300 px-6 py-3">5.06±6.64</td>
+              </tr>
+              <tr class="odd:bg-white even:bg-gray-50">
+                <td class="border border-gray-300 px-6 py-3">CNN-LSTM 64 units</td>
+                <td class="border border-gray-300 px-6 py-3">0.19±0.05</td>
+                <td class="border border-gray-300 px-6 py-3">3.17±3.85</td>
+              </tr>
+              <tr class="odd:bg-white even:bg-gray-50">
+                <td class="border border-gray-300 px-6 py-3">VAE-LSTM 64 units</td>
+                <td class="border border-gray-300 px-6 py-3">0.54±0.26</td>
+                <td class="border border-gray-300 px-6 py-3">4.70±4.80</td>
+              </tr>
+              <tr class="odd:bg-white even:bg-gray-50">
+                <td class="border border-gray-300 px-6 py-3">VAE-LSTM 19 units</td>
+                <td class="border border-gray-300 px-6 py-3">0.60±0.30</td>
+                <td class="border border-gray-300 px-6 py-3">6.75±8.33</td>
+              </tr>
+              <tr class="odd:bg-white even:bg-gray-50">
+                <td class="border border-gray-300 px-6 py-3">Swin-AttnPool (ImageNet pretrained)</td>
+                <td class="border border-gray-300 px-6 py-3">2.91±2.23</td>
+                <td class="border border-gray-300 px-6 py-3">11.03±10.03</td>
+              </tr>
+              <tr class="odd:bg-white even:bg-gray-50">
+                <td class="border border-gray-300 px-6 py-3">Swin-AttnPool (Encoder unfrozen)</td>
+                <td class="border border-gray-300 px-6 py-3">9.62±3.24</td>
+                <td class="border border-gray-300 px-6 py-3">16.46±11.13</td>
+              </tr>
+              <tr class="odd:bg-white even:bg-gray-50">
+                <td class="border border-gray-300 px-6 py-3 font-bold">Swin-AttnPool (Encoder frozen)</td>
+                <td class="border border-gray-300 px-6 py-3 font-bold">1.64±1.63</td>
+                <td class="border border-gray-300 px-6 py-3 font-bold">5.41±6.06</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <p class="text-justify w-full mt-5">
+          <strong>Tab. 3:</strong> Results from the passive lane-keeping evaluation across tenfold cross-testing. Our frozen encoder model (Swin-AttnPool - Encoder frozen) demonstrates competitive performance in test error compared to CNN and VAE-based models.
+        </p>
+      </div>
     </div>
 
     <div id="videos" class="px-5 mt-10 mx-auto">
